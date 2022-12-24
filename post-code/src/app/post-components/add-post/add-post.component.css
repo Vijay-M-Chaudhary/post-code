@@ -1,0 +1,14 @@
+button:disabled {
+    cursor: not-allowed !important;
+    opacity: 0.5;
+}
+
+span {
+    color: red;
+    font-size: 0.8em;
+}
+
+.required:after {
+    content: " *";
+    color: red;
+}

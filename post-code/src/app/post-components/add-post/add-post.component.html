@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h3 style="text-align: center;">Add Post</h3>
+      <hr />
+      <form [formGroup]="postForm" (ngSubmit)="onAddPost()">
+        <div class="mb-3">
+          <label class="required">Title</label>
+          <input type="text" class="form-control" formControlName="title"/>
+          <span *ngIf="(postForm.get('title').dirty || postForm.get('title').touched) && postForm.get('title').errors 
+          && postForm.get('title').errors['required']">Title is Required</span>
+          <span *ngIf="(postForm.get('title').dirty || postForm.get('title').touched) && postForm.get('title').errors 
+          && postForm.get('title').errors['invalidTitle']">Title should start with 'X' or 'x'</span>
+
+        </div>
+        <div class="mb-3">
+          <label class="required">Body</label>
+          <textarea class="form-control" formControlName="body" rows="4"></textarea>
+          <span *ngIf="(postForm.get('body').dirty || postForm.get('body').touched) && postForm.get('body').errors 
+          && postForm.get('body').errors['required']">Body is Required</span>
+        </div>
+
+        <div class="my-3" style="text-align: center;">
+          <button class="btn btn-outline-primary rounded-pill" [disabled]="postForm.invalid">
+            Save Post
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

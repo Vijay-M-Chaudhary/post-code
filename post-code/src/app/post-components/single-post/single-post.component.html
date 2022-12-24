@@ -1,0 +1,27 @@
+<div class="container mt-4">
+  <div *ngIf="post | async as postData">
+
+    <div class="mb-2">
+      User:
+     <h6> {{ postData.userId }}</h6>
+    </div>
+
+    <div class="mb-4">
+      Title:
+      <br>
+      <h6 >{{ postData.title }}</h6>
+    </div>
+
+
+
+    <div class="mb-2">
+      Description: <br>
+      <h6 >
+        {{ postData.body }}
+      </h6>
+    </div>
+  </div>
+  <div style="text-align: right;">
+    <a [routerLink]="['/']">Back to posts</a>
+  </div>
+</div>

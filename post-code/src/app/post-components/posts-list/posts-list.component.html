@@ -1,0 +1,17 @@
+<div class="container">
+  <div>
+    <input type="text" [formControl]="searchField" class="form-control mb-2 mt-3 rounded-pill" style="width: 91%;" placeholder="Search with title">
+  </div>
+  <div class="row">
+    <ng-container *ngIf="posts | async as postsData">
+      <div class="card m-2" *ngFor="let post of postsData">
+        <div class="card-body">
+          <h5 class="card-title wrap-text-vertical" [title]="post.title">{{ post.title }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">User: {{post.userId}}</h6>
+          <p class="card-text wrap-text-vertical">{{post.body}}</p>
+          <a href="#" class="card-link" [routerLink]="['details', post.id]">View More</a>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
